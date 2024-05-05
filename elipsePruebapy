@@ -1,0 +1,67 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+def midptellipse(rx, ry, xc, yc):
+    x = 0
+    y = ry
+
+    # Inicialización de listas para almacenar puntos
+    x_points = []
+    y_points = []
+
+    # Parámetro de decisión inicial de la región 1
+    d1 = ((ry * ry) - (rx * rx * ry) + (0.25 * rx * rx))
+    dx = 2 * ry * ry * x
+    dy = 2 * rx * rx * y
+
+    # Para la región 1
+    while dx < dy:
+        # Agregar puntos basados en simetría de 4 vías
+        x_points.extend([x + xc, -x + xc, x + xc, -x + xc])
+        y_points.extend([y + yc, y + yc, -y + yc, -y + yc])
+
+        # Actualizar valor del parámetro de decisión basado en el algoritmo
+        if d1 < 0:
+            x += 1
+            dx = dx + (2 * ry * ry)
+            d1 = d1 + dx + (ry * ry)
+        else:
+            x += 1
+            y -= 1
+            dx = dx + (2 * ry * ry)
+            dy = dy - (2 * rx * rx)
+            d1 = d1 + dx - dy + (ry * ry)
+
+    # Parámetro de decisión de la región 2
+    d2 = (((ry * ry) * ((x + 0.5) * (x + 0.5))) + ((rx * rx) * ((y - 1) * (y - 1))) - (rx * rx * ry * ry))
+
+    # Agregar puntos de la región 2
+    while y >= 0:
+        # Agregar puntos basados en simetría de 4 vías
+        x_points.extend([x + xc, -x + xc, x + xc, -x + xc])
+        y_points.extend([y + yc, y + yc, -y + yc, -y + yc])
+
+        # Actualizar parámetro de decisión
+        if d2 > 0:
+            y -= 1
+            dy = dy - (2 * rx * rx)
+            d2 = d2 + (rx * rx) - dy
+        else:
+            y -= 1
+            x += 1
+            dx = dx + (2 * ry * ry)
+            dy = dy - (2 * rx * rx)
+            d2 = d2 + dx - dy + (rx * rx)
+
+    # Crear la gráfica
+    plt.figure()
+    plt.plot(x_points, y_points, 'bo')
+    plt.xlabel('X')
+    plt.ylabel('Y')
+    plt.title('Mid-Point Ellipse Drawing Algorithm')
+    plt.gca().set_aspect('equal', adjustable='box')
+    plt.grid(True)
+    plt.show()
+
+# Para dibujar una elipse de radio mayor y menor 15, 10 centrada en (0, 0)
+midptellipse(8, 6, 0, 0)

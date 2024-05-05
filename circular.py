@@ -33,7 +33,7 @@ class Circular(tk.Frame):
         izqFrame = customtkinter.CTkFrame(master=self, width=600, height=250, fg_color='transparent')
         izqFrame.place(x=10, y=70)
 
-        titulo = customtkinter.CTkLabel(master=izqFrame, text='Algoritmo de Punto Medio', width=40, height=28, fg_color='transparent', font=("Roboto", 18))
+        titulo = customtkinter.CTkLabel(master=izqFrame, text='Algoritmo de Punto Medio Circular', width=40, height=28, fg_color='transparent', font=("Roboto", 18))
         titulo.place(x=10, y=10)
 
         label = customtkinter.CTkLabel(master=izqFrame, text='Xc =', width=40, height=28, font=("Roboto", 18, "bold"), fg_color='transparent')
@@ -146,12 +146,12 @@ class Circular(tk.Frame):
             self.treeview.insert('', 'end', values=(puntosx[i], puntosy[i]))
 
         # Dibujar la línea
-        plot.plot(puntosx, puntosy, 'bo')
+        plot.plot(puntosx, puntosy, 'bo', color='#FFD369')
         plot.set_aspect('equal', adjustable='box')
-        plot.set_xlabel('X')
-        plot.set_ylabel('Y')
-        plot.set_title('Punto medio')
-        plot.grid(True)
+        plot.set_xlabel('X', color='white')
+        plot.set_ylabel('Y',color='white')
+        plot.set_title('Punto medio', color='white')
+        plot.grid(True, color='white')
 
         plot.spines['bottom'].set_color('white')
         plot.spines['left'].set_color('white')
