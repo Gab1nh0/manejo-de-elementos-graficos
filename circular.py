@@ -59,7 +59,7 @@ class Circular(tk.Frame):
         button.place(x=300, y=120)
 
         button = customtkinter.CTkButton(master=izqFrame, text='Limpiar', width=140, height=28, font=("Roboto", 18), command=self.limpiar, fg_color="#CD3030", hover_color="#900000")
-        button.place(x=300, y=150)
+        button.place(x=300, y=170)
 
     def limpiar(self):
         self.x1.delete(0, tk.END)
@@ -132,10 +132,9 @@ class Circular(tk.Frame):
     
 
     def limpiar(self):
-        self.x1.delete(0, tk.END)
-        self.y1.delete(0, tk.END)
-        self.x2.delete(0, tk.END)
-        self.y2.delete(0, tk.END)
+        self.xc.delete(0, tk.END)
+        self.yc.delete(0, tk.END)
+        self.r.delete(0, tk.END)
 
         #frame izquierdo inferior sin datos
         izqInf = customtkinter.CTkFrame(master=self, width=560, height=40, fg_color='transparent')

@@ -121,10 +121,10 @@ class Elipse(tk.Frame):
     
 
     def limpiar(self):
-        self.x1.delete(0, tk.END)
-        self.y1.delete(0, tk.END)
-        self.x2.delete(0, tk.END)
-        self.y2.delete(0, tk.END)
+        self.xc.delete(0, tk.END)
+        self.yc.delete(0, tk.END)
+        self.rx.delete(0, tk.END)
+        self.ry.delete(0, tk.END)
 
         #frame izquierdo inferior sin datos
         izqInf = customtkinter.CTkFrame(master=self, width=560, height=40, fg_color='transparent')

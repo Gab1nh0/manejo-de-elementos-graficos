@@ -126,7 +126,7 @@ class Bresen(tk.Frame):
         #frame sin tabla
         tablaFrame = customtkinter.CTkFrame(master=self, width=560, height=400, fg_color="#222831")
         tablaFrame.place(x=30, y=360)
-
+    
 
     
     def button_eventBresen(self): #funcion q obtiene los datos 
