@@ -64,6 +64,9 @@ class Bresen(tk.Frame):
 
         button = customtkinter.CTkButton(master=izqFrame, text='Graficar', width=140, height=28, font=("Roboto", 18), command=self.button_eventBresen)
         button.place(x=300, y=170)
+
+        button = customtkinter.CTkButton(master=izqFrame, text='Limpiar', width=140, height=28, font=("Roboto", 18), command=self.limpiar, fg_color="#CD3030", hover_color="#900000")
+        button.place(x=150, y=170)
     
     def trazarBresenham(self, numx1, numy1, numx2, numy2):
         dx = abs(numx2 - numx1)
@@ -105,6 +108,24 @@ class Bresen(tk.Frame):
             puntosbb.append((x, y))
 
         return puntosbb, dx, dy
+    
+    def limpiar(self):
+        self.x1.delete(0, tk.END)
+        self.y1.delete(0, tk.END)
+        self.x2.delete(0, tk.END)
+        self.y2.delete(0, tk.END)
+
+        #frame izquierdo inferior sin datos
+        izqInf = customtkinter.CTkFrame(master=self, width=560, height=40, fg_color='transparent')
+        izqInf.place(x=10, y=290)
+
+        # Frame derecho sin grafica
+        derFrame = customtkinter.CTkFrame(master=self, width=560, height=620, fg_color="#222831")
+        derFrame.place(x=630, y=140)
+
+        #frame sin tabla
+        tablaFrame = customtkinter.CTkFrame(master=self, width=560, height=400, fg_color="#222831")
+        tablaFrame.place(x=30, y=360)
 
 
     

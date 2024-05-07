@@ -1,6 +1,6 @@
 #tkinder para la interfaz
 import tkinter as tk
-from screens import Home, Dda, Bresen, Circular, Elipse
+from screens import Home, Dda, Bresen, Circular, Elipse, Presentacion
 
 
 
@@ -22,7 +22,7 @@ class Manager(tk.Tk):
 
 
         self.frame = {}
-        for F in (Home, Dda, Bresen, Circular, Elipse):
+        for F in (Home, Dda, Bresen, Circular, Elipse, Presentacion):
             frame = F(container, self)
             self.frame[F] = frame
             frame.grid(row = 0, column = 0, sticky = tk.NSEW)
